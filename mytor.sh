@@ -6,6 +6,7 @@ if [ "$1" == "start" ]; then
     mkdir -p /tmp/tor/9001
     chmod 777 /tmp/tor/9001
     touch /tmp/tor/9001/torrc
+    echo "" >> /tmp/tor/9001/torrc
     echo "SocksPort 9001" >> /tmp/tor/9001/torrc
     echo "ControlPort 9091" >> /tmp/tor/9001/torrc
     echo "DNSPort 9053" >> /tmp/tor/9001/torrc
@@ -17,6 +18,7 @@ if [ "$1" == "start" ]; then
     mkdir -p /tmp/tor/9002
     chmod 777 /tmp/tor/9002
     touch /tmp/tor/9002/torrc
+    echo "" >> /tmp/tor/9002/torrc
     echo "SocksPort 9002" >> /tmp/tor/9002/torrc
     echo "ControlPort 9092" >> /tmp/tor/9002/torrc
     echo "DataDirectory /tmp/tor/9002" >> /tmp/tor/9002/torrc
@@ -25,6 +27,7 @@ if [ "$1" == "start" ]; then
     mkdir -p /tmp/tor/9003
     chmod 777 /tmp/tor/9003
     touch /tmp/tor/9003/torrc
+    echo "" >> /tmp/tor/9003/torrc
     echo "SocksPort 9003" >> /tmp/tor/9003/torrc
     echo "ControlPort 9093" >> /tmp/tor/9003/torrc
     echo "DataDirectory /tmp/tor/9003" >> /tmp/tor/9003/torrc
@@ -33,6 +36,7 @@ if [ "$1" == "start" ]; then
     mkdir -p /tmp/tor/9004
     chmod 777 /tmp/tor/9004
     touch /tmp/tor/9004/torrc
+    echo "" >> /tmp/tor/9004/torrc
     echo "SocksPort 9004" >> /tmp/tor/9004/torrc
     echo "ControlPort 9094" >> /tmp/tor/9004/torrc
     echo "DataDirectory /tmp/tor/9004" >> /tmp/tor/9004/torrc
@@ -41,6 +45,7 @@ if [ "$1" == "start" ]; then
     mkdir -p /tmp/tor/9005
     chmod 777 /tmp/tor/9005
     touch /tmp/tor/9005/torrc
+    echo "" >> /tmp/tor/9005/torrc
     echo "SocksPort 9005" >> /tmp/tor/9005/torrc
     echo "ControlPort 9095" >> /tmp/tor/9005/torrc
     echo "DataDirectory /tmp/tor/9005" >> /tmp/tor/9005/torrc
@@ -77,11 +82,7 @@ if [ "$1" == "start" ]; then
     privoxy ./privoxy.cfg
 
 else
-    rm -rf /etc/tor/torrc.1
-    rm -rf /etc/tor/torrc.2
-    rm -rf /etc/tor/torrc.3
-    rm -rf /etc/tor/torrc.4
-    rm -rf /etc/tor/torrc.5
+
     rm -rf /etc/dnsmasq.conf
     cp /etc/resolv.conf_OLD /etc/resolv.conf
     echo "nameserver 8.8.8.8" > /etc/resolv.conf

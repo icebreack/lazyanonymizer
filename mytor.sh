@@ -3,52 +3,52 @@
 if [ "$1" == "start" ]; then
 
 
-    mkdir -p /tmp/tor/9001
+    sudo -u debian-tor mkdir -p /tmp/tor/9001
     chmod 777 /tmp/tor/9001
     touch /tmp/tor/9001/torrc
     echo "" > /tmp/tor/9001/torrc
     echo "SocksPort 9001" >> /tmp/tor/9001/torrc
     echo "ControlPort 9091" >> /tmp/tor/9001/torrc
     echo "DNSPort 9053" >> /tmp/tor/9001/torrc
-    echo "DataDirectory /tmp/tor/9001" >> /tmp/tor/9001/torrc
+    echo "DataDirectory /tmp/tor/9001/data" >> /tmp/tor/9001/torrc
     echo "AutomapHostsOnResolve 1" >> /tmp/tor/9001/torrc
     echo "AutomapHostsSuffixes .exit,.onion" >> /tmp/tor/9001/torrc
     echo "Log debug file /tmp/tor/9001/debug.log" >> /tmp/tor/9001/torrc
 
-    mkdir -p /tmp/tor/9002
+    sudo -u debian-tor mkdir -p /tmp/tor/9002
     chmod 777 /tmp/tor/9002
     touch /tmp/tor/9002/torrc
     echo "" > /tmp/tor/9002/torrc
     echo "SocksPort 9002" >> /tmp/tor/9002/torrc
     echo "ControlPort 9092" >> /tmp/tor/9002/torrc
-    echo "DataDirectory /tmp/tor/9002" >> /tmp/tor/9002/torrc
+    echo "DataDirectory /tmp/tor/9002/data" >> /tmp/tor/9002/torrc
     echo "Log debug file /tmp/tor/9002/debug.log" >> /tmp/tor/9002/torrc
 
-    mkdir -p /tmp/tor/9003
+    sudo -u debian-tor mkdir -p /tmp/tor/9003
     chmod 777 /tmp/tor/9003
     touch /tmp/tor/9003/torrc
     echo "" > /tmp/tor/9003/torrc
     echo "SocksPort 9003" >> /tmp/tor/9003/torrc
     echo "ControlPort 9093" >> /tmp/tor/9003/torrc
-    echo "DataDirectory /tmp/tor/9003" >> /tmp/tor/9003/torrc
+    echo "DataDirectory /tmp/tor/9003/data" >> /tmp/tor/9003/torrc
     echo "Log debug file /tmp/tor/9003/debug.log" >> /tmp/tor/9003/torrc
 
-    mkdir -p /tmp/tor/9004
+    sudo -u debian-tor mkdir -p /tmp/tor/9004
     chmod 777 /tmp/tor/9004
     touch /tmp/tor/9004/torrc
     echo "" > /tmp/tor/9004/torrc
     echo "SocksPort 9004" >> /tmp/tor/9004/torrc
     echo "ControlPort 9094" >> /tmp/tor/9004/torrc
-    echo "DataDirectory /tmp/tor/9004" >> /tmp/tor/9004/torrc
+    echo "DataDirectory /tmp/tor/9004/data" >> /tmp/tor/9004/torrc
     echo "Log debug file /tmp/tor/9004/debug.log" >> /tmp/tor/9004/torrc
 
-    mkdir -p /tmp/tor/9005
+    sudo -u debian-tor mkdir -p /tmp/tor/9005
     chmod 777 /tmp/tor/9005
     touch /tmp/tor/9005/torrc
     echo "" > /tmp/tor/9005/torrc
     echo "SocksPort 9005" >> /tmp/tor/9005/torrc
     echo "ControlPort 9095" >> /tmp/tor/9005/torrc
-    echo "DataDirectory /tmp/tor/9005" >> /tmp/tor/9005/torrc
+    echo "DataDirectory /tmp/tor/9005/data" >> /tmp/tor/9005/torrc
     echo "Log debug file /tmp/tor/9005/debug.log" >> /tmp/tor/9005/torrc
 
 

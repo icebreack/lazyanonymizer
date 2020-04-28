@@ -2,33 +2,39 @@
 
 if [ "$1" == "start" ]; then
 
-    touch /etc/tor/torrc.1
-    echo "SocksPort 9001" >> /etc/tor/torrc.1
-    echo "ControlPort 9091" >> /etc/tor/torrc.1
-    echo "DNSPort 9053" >> /etc/tor/torrc.1
-    echo "DataDirectory /var/lib/tor" >> /etc/tor/torrc.1
-    echo "AutomapHostsOnResolve 1" >> /etc/tor/torrc.1
-    echo "AutomapHostsSuffixes .exit,.onion" >> /etc/tor/torrc.1
 
-    touch /etc/tor/torrc.2
-    echo "SocksPort 9002" >> /etc/tor/torrc.2
-    echo "ControlPort 9092" >> /etc/tor/torrc.2
-    echo "DataDirectory /var/lib/tor" >> /etc/tor/torrc.2
+    mkdir -p /tmp/tor/9001
+    touch /tmp/tor/9001/torrc.1
+    echo "SocksPort 9001" >> /tmp/tor/9001/torrc.1
+    echo "ControlPort 9091" >> /tmp/tor/9001/torrc.1
+    echo "DNSPort 9053" >> /tmp/tor/9001/torrc.1
+    echo "DataDirectory /tmp/tor/9000" >> /tmp/tor/9001/torrc.1
+    echo "AutomapHostsOnResolve 1" >> /tmp/tor/9001/torrc.1
+    echo "AutomapHostsSuffixes .exit,.onion" >> /tmp/tor/9001/torrc.1
 
-    touch /etc/tor/torrc.3
-    echo "SocksPort 9003" >> /etc/tor/torrc.3
-    echo "ControlPort 9093" >> /etc/tor/torrc.3
-    echo "DataDirectory /var/lib/tor" >> /etc/tor/torrc.3
+    mkdir -p /tmp/tor/9002
+    touch /tmp/tor/9002/torrc.1
+    echo "SocksPort 9002" >> /tmp/tor/9002/torrc.1
+    echo "ControlPort 9092" >> /tmp/tor/9002/torrc.1
+    echo "DataDirectory /tmp/tor/9002" >> /tmp/tor/9002/torrc.1
 
-    touch /etc/tor/torrc.4
-    echo "SocksPort 9004" >> /etc/tor/torrc.4
-    echo "ControlPort 9094" >> /etc/tor/torrc.4
-    echo "DataDirectory /var/lib/tor" >> /etc/tor/torrc.4
+    mkdir -p /tmp/tor/9003
+    touch /tmp/tor/9003/torrc.1
+    echo "SocksPort 9003" >> /tmp/tor/9003/torrc.1
+    echo "ControlPort 9093" >> /tmp/tor/9003/torrc.1
+    echo "DataDirectory /tmp/tor/9003" >> /tmp/tor/9003/torrc.1
 
-    touch /etc/tor/torrc.5
-    echo "SocksPort 9005" >> /etc/tor/torrc.5
-    echo "ControlPort 9095" >> /etc/tor/torrc.5
-    echo "DataDirectory /var/lib/tor" >> /etc/tor/torrc.5
+    mkdir -p /tmp/tor/9004
+    touch /tmp/tor/9004/torrc.1
+    echo "SocksPort 9004" >> /tmp/tor/9004/torrc.1
+    echo "ControlPort 9094" >> /tmp/tor/9004/torrc.1
+    echo "DataDirectory /tmp/tor/9004" >> /tmp/tor/9004/torrc.1
+
+    mkdir -p /tmp/tor/9005
+    touch /tmp/tor/9005/torrc.1
+    echo "SocksPort 9005" >> /tmp/tor/9005/torrc.1
+    echo "ControlPort 9095" >> /tmp/tor/9005/torrc.1
+    echo "DataDirectory /tmp/tor/9005" >> /tmp/tor/9005/torrc.1
 
 
     sudo -u debian-tor tor -f /etc/tor/torrc.1 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1

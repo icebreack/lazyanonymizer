@@ -58,12 +58,11 @@ if [ "$1" == "start" ]; then
     sudo -u debian-tor tor -f /tmp/tor/9004/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
     sudo -u debian-tor tor -f /tmp/tor/9005/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
 
-    cp /etc/resolv.conf /etc/resolv.conf_OLD
     echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
     kill -9 $(pgrep -fi dnsmasq)
 
-    touch /etc/dnsmasq.conf
+    echo "" > /etc/dnsmasq.conf
     echo "no-resolv" >> /etc/dnsmasq.conf
     echo "server=127.0.0.1#9053" >> /etc/dnsmasq.conf
     echo "listen-address=127.0.0.1" >> /etc/dnsmasq.conf
@@ -84,7 +83,6 @@ if [ "$1" == "start" ]; then
 else
 
     rm -rf /etc/dnsmasq.conf
-    cp /etc/resolv.conf_OLD /etc/resolv.conf
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
     cp haproxy.cfg_OLD ./haproxy.cfg
 

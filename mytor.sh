@@ -4,44 +4,49 @@ if [ "$1" == "start" ]; then
 
 
     mkdir -p /tmp/tor/9001
-    touch /tmp/tor/9001/torrc.1
-    echo "SocksPort 9001" >> /tmp/tor/9001/torrc.1
-    echo "ControlPort 9091" >> /tmp/tor/9001/torrc.1
-    echo "DNSPort 9053" >> /tmp/tor/9001/torrc.1
-    echo "DataDirectory /tmp/tor/9000" >> /tmp/tor/9001/torrc.1
-    echo "AutomapHostsOnResolve 1" >> /tmp/tor/9001/torrc.1
-    echo "AutomapHostsSuffixes .exit,.onion" >> /tmp/tor/9001/torrc.1
+    touch /tmp/tor/9001/torrc
+    echo "SocksPort 9001" >> /tmp/tor/9001/torrc
+    echo "ControlPort 9091" >> /tmp/tor/9001/torrc
+    echo "DNSPort 9053" >> /tmp/tor/9001/torrc
+    echo "DataDirectory /tmp/tor/9000" >> /tmp/tor/9001/torrc
+    echo "AutomapHostsOnResolve 1" >> /tmp/tor/9001/torrc
+    echo "AutomapHostsSuffixes .exit,.onion" >> /tmp/tor/9001/torrc
+    echo "Log debug file /tmp/tor/9001/debug.log" >> /tmp/tor/9001/torrc
 
     mkdir -p /tmp/tor/9002
-    touch /tmp/tor/9002/torrc.1
-    echo "SocksPort 9002" >> /tmp/tor/9002/torrc.1
-    echo "ControlPort 9092" >> /tmp/tor/9002/torrc.1
-    echo "DataDirectory /tmp/tor/9002" >> /tmp/tor/9002/torrc.1
+    touch /tmp/tor/9002/torrc
+    echo "SocksPort 9002" >> /tmp/tor/9002/torrc
+    echo "ControlPort 9092" >> /tmp/tor/9002/torrc
+    echo "DataDirectory /tmp/tor/9002" >> /tmp/tor/9002/torrc
+    echo "Log debug file /tmp/tor/9002/debug.log" >> /tmp/tor/9002/torrc
 
     mkdir -p /tmp/tor/9003
-    touch /tmp/tor/9003/torrc.1
-    echo "SocksPort 9003" >> /tmp/tor/9003/torrc.1
-    echo "ControlPort 9093" >> /tmp/tor/9003/torrc.1
-    echo "DataDirectory /tmp/tor/9003" >> /tmp/tor/9003/torrc.1
+    touch /tmp/tor/9003/torrc
+    echo "SocksPort 9003" >> /tmp/tor/9003/torrc
+    echo "ControlPort 9093" >> /tmp/tor/9003/torrc
+    echo "DataDirectory /tmp/tor/9003" >> /tmp/tor/9003/torrc
+    echo "Log debug file /tmp/tor/9003/debug.log" >> /tmp/tor/9003/torrc
 
     mkdir -p /tmp/tor/9004
-    touch /tmp/tor/9004/torrc.1
-    echo "SocksPort 9004" >> /tmp/tor/9004/torrc.1
-    echo "ControlPort 9094" >> /tmp/tor/9004/torrc.1
-    echo "DataDirectory /tmp/tor/9004" >> /tmp/tor/9004/torrc.1
+    touch /tmp/tor/9004/torrc
+    echo "SocksPort 9004" >> /tmp/tor/9004/torrc
+    echo "ControlPort 9094" >> /tmp/tor/9004/torrc
+    echo "DataDirectory /tmp/tor/9004" >> /tmp/tor/9004/torrc
+    echo "Log debug file /tmp/tor/9004/debug.log" >> /tmp/tor/9004/torrc
 
     mkdir -p /tmp/tor/9005
-    touch /tmp/tor/9005/torrc.1
-    echo "SocksPort 9005" >> /tmp/tor/9005/torrc.1
-    echo "ControlPort 9095" >> /tmp/tor/9005/torrc.1
-    echo "DataDirectory /tmp/tor/9005" >> /tmp/tor/9005/torrc.1
+    touch /tmp/tor/9005/torrc
+    echo "SocksPort 9005" >> /tmp/tor/9005/torrc
+    echo "ControlPort 9095" >> /tmp/tor/9005/torrc
+    echo "DataDirectory /tmp/tor/9005" >> /tmp/tor/9005/torrc
+    echo "Log debug file /tmp/tor/9005/debug.log" >> /tmp/tor/9005/torrc
 
 
-    sudo -u debian-tor tor -f /etc/tor/torrc.1 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
-    sudo -u debian-tor tor -f /etc/tor/torrc.2 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
-    sudo -u debian-tor tor -f /etc/tor/torrc.3 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
-    sudo -u debian-tor tor -f /etc/tor/torrc.4 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
-    sudo -u debian-tor tor -f /etc/tor/torrc.5 --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
+    sudo -u debian-tor tor -f /tmp/tor/9001/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
+    sudo -u debian-tor tor -f /tmp/tor/9002/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
+    sudo -u debian-tor tor -f /tmp/tor/9003/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
+    sudo -u debian-tor tor -f /tmp/tor/9004/torrc--RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
+    sudo -u debian-tor tor -f /tmp/tor/9005/torrc --RunAsDaemon 1 --CookieAuthentication 0 --SocksBindAddress 127.0.0.1 --NewCircuitPeriod 15 --MaxCircuitDirtiness 15 --NumEntryGuards 8 --CircuitBuildTimeout 5 --ExitRelay 0 --RefuseUnknownExits 0 --ClientOnly 1 --StrictNodes 1 --AllowSingleHopCircuits 1
 
     cp /etc/resolv.conf /etc/resolv.conf_OLD
     echo "nameserver 127.0.0.1" > /etc/resolv.conf

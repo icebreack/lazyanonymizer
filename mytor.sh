@@ -51,10 +51,10 @@ if [ "$1" == "start" ]; then
 
     cp ./haproxy.cfg ./haproxy.cfg_OLD
     echo "server            socks-process-9001 127.0.0.1:9001 check fall 3 rise 2" >> ./haproxy.cfg
-    echo "server            socks-process-9002 127.0.0.1:9001 check fall 3 rise 2" >> ./haproxy.cfg
-    echo "server            socks-process-9003 127.0.0.1:9001 check fall 3 rise 2" >> ./haproxy.cfg
-    echo "server            socks-process-9004 127.0.0.1:9001 check fall 3 rise 2" >> ./haproxy.cfg
-    echo "server            socks-process-9005 127.0.0.1:9001 check fall 3 rise 2" >> ./haproxy.cfg
+    echo "server            socks-process-9002 127.0.0.1:9002 check fall 3 rise 2" >> ./haproxy.cfg
+    echo "server            socks-process-9003 127.0.0.1:9003 check fall 3 rise 2" >> ./haproxy.cfg
+    echo "server            socks-process-9004 127.0.0.1:9004 check fall 3 rise 2" >> ./haproxy.cfg
+    echo "server            socks-process-9005 127.0.0.1:9005 check fall 3 rise 2" >> ./haproxy.cfg
 
     haproxy -f ./haproxy.cfg
 
